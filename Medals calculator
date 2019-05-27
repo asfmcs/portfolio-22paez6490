@@ -1,0 +1,75 @@
+<html>
+<head>
+<title>Medal Standings</title>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+
+<script type="text/javascript" src="https://static.codehs.com/gulp/ec071a764d83f34910ba21fab0b0f0cc20293542/chs-js-lib/chs.js"></script>
+
+
+<style>
+canvas {
+    border: 1px solid black;
+    display: inline-block;
+    vertical-align: top;
+}
+
+pre {
+    border: 1px solid black;
+    display: inline-block;
+    width: 400px;
+    height: 500px;
+    background-color: #F5F5F5;
+}
+</style>
+
+</head>
+
+<body>
+<h1>Medal Standings</h1>
+
+
+
+<canvas
+width="400"
+height="500"
+class="codehs-editor-canvas"></canvas>
+<pre id="console"></pre>
+
+<script>
+window.onload = function() {
+
+    function start (){
+    var gold14 = readInt("Gold Medals 2014 ");
+    var silver14 = readInt("Silver Medals 2014 ");
+    var bronze14 = readInt("Bronze Medals 2014");
+    var gold18 = readInt("Gold Medals 2018");
+    var silver18 = readInt("Silver Medals 2018");
+    var bronze18 = readInt("Bronze Medals 2018");
+    var changegold = gold18 - gold14;
+    var changesilver = silver18 - silver14;
+    var changebronze = bronze18 - bronze14;
+    var total14 = gold14 + silver14 + bronze14;
+    var total18 = gold18 + silver18 + bronze18;
+    var total = total18 - total14;
+    println("-------------------------------------------------");
+    println("USA 2014 vs 2018 Olympic Winter Games Medal Count");
+    println("-------------------------------------------------");
+    println("     2014    2018  Change");
+    println("-------------------------------------------------");
+    println("Gold:    " + gold14 +    ("   ")+ gold18 + ("     ") + changegold );
+    println("Silver:  " + silver14 +  ("   ")+ silver18 + ("     ") + changesilver);
+    println("Bronze:  " + bronze14 +  ("   ")+ bronze18 + ("     ") + changebronze);
+    println("-------------------------------------------------");
+    println("Total:   " + total14 + ("    ") + total18 + ("   ") + total);
+    }
+
+
+    if (typeof start === 'function') {
+        start();
+    }
+};
+</script>
+
+</body>
+</html>
