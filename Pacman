@@ -1,0 +1,171 @@
+<html>
+<head>
+<title>The Maze full</title>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+
+<script type="text/javascript" src="https://static.codehs.com/gulp/ec071a764d83f34910ba21fab0b0f0cc20293542/chs-js-lib/chs.js"></script>
+
+
+<style>
+canvas {
+    border: 1px solid black;
+    display: inline-block;
+    vertical-align: top;
+}
+
+pre {
+    border: 1px solid black;
+    display: inline-block;
+    width: 400px;
+    height: 500px;
+    background-color: #F5F5F5;
+}
+</style>
+
+</head>
+
+<body>
+<h1>The Maze full</h1>
+
+
+
+<canvas
+width="400"
+height="500"
+class="codehs-editor-canvas"></canvas>
+<pre id="console"></pre>
+
+<script>
+window.onload = function() {
+
+    function start(){
+    
+    var back = new Rectangle(500,500);
+    back.setColor(Color.black);
+    back.setPosition(0,0);
+    add (back);
+    
+    drawMaze(1, 1, Color.blue);
+    drawPacman(100,300);
+    drawGhost(210,50, Color.red);
+    drawGhost(20,200, Color.cyan);
+    drawGhost(350,200, Color.purple);
+    drawGhost(210,300, Color.orange);
+
+}
+
+function drawMaze(centerX, centerY, color){
+   var line = new Line(0, 50, 200, 50);
+    line.setColor(color);
+    line.setLineWidth(2);
+    add(line);
+    var line = new Line(200, 50, 200, 100);
+    line.setColor(color);
+    line.setLineWidth(2);
+    add(line);
+    var line = new Line(200, 100, 0, 100);
+    line.setColor(color);
+    line.setLineWidth(2);
+    add(line);
+    var line = new Line(0, 300, 200, 300);
+    line.setColor(color);
+    line.setLineWidth(2);
+    add(line);
+    var line = new Line(200, 300, 200, 350);
+    line.setColor(color);
+    line.setLineWidth(2);
+    add(line);
+    var line = new Line(200, 350, 0, 350);
+    line.setColor(color);
+    line.setLineWidth(2);
+    add(line); 
+    
+}
+
+function drawPacman(centerX, centerY){
+    
+    var arc = new Arc(60, 15, 325, 0);
+    arc.setPosition(150, 200);
+    arc.setColor(Color.yellow);
+    add (arc);
+
+    var circ = new Circle(10);
+    circ.setPosition(335, 220);
+    circ.setColor(Color.yellow);
+    add (circ);
+    
+    var circ = new Circle(10);
+    circ.setPosition(275, 220);
+    circ.setColor(Color.yellow);
+    add (circ);
+    
+    var circ = new Circle(10);
+    circ.setPosition(215, 220);
+    circ.setColor(Color.yellow);
+    add (circ);
+    
+    var circ = new Circle(15);
+    circ.setPosition(170, 170);
+    circ.setColor(Color.black);
+    add (circ);
+    
+}
+
+
+
+
+function drawGhost(centerX, centerY, color1){
+    var w = 50;
+    var l = 30;
+    var circle = new Circle(w/2);
+    circle.setColor(color1);
+    circle.setPosition(centerX +25, centerY);
+    add (circle);
+    var rect = new Rectangle(w, l);
+    rect.setColor(color1);
+    rect.setPosition(centerX, centerY);
+    add(rect);
+    var circle = new Circle(w/8);
+    circle.setColor(Color.white);
+    circle.setPosition(centerX +11,centerY);
+    add(circle);
+    var circle = new Circle(w/8);
+    circle.setColor(Color.white);
+    circle.setPosition(centerX +35,centerY);
+    add(circle);
+    var circle = new Circle(w/14);
+    circle.setColor(Color.blue);
+    circle.setPosition(centerX +9,centerY);
+    add(circle);
+    var circle = new Circle(w/14);
+    circle.setColor(Color.blue);
+    circle.setPosition(centerX +33,centerY);
+    add(circle);
+    var circle = new Circle(w/5.5);
+    circle.setColor(color1);
+    circle.setPosition(centerX+9,centerY+33);
+    add(circle);
+    var circle = new Circle(w/5.5);
+    circle.setColor(color1);
+    circle.setPosition(centerX+26,centerY+33);
+    add(circle);
+    var circle = new Circle(w/5.5);
+    circle.setColor(color1);
+    circle.setPosition(centerX+40.5,centerY+33);
+    add(circle);
+    
+    
+
+
+}
+
+
+    if (typeof start === 'function') {
+        start();
+    }
+};
+</script>
+
+</body>
+</html>
